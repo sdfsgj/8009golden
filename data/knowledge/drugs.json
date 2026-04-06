@@ -11,8 +11,8 @@
     "precautions": ["do not combine with other medicines that also contain acetaminophen", "avoid overdose", "use extra caution with regular alcohol use or liver disease"],
     "when_to_ask_doctor": ["pain lasts more than expected", "fever gets worse", "signs of liver trouble", "severe skin reaction"],
     "source": {
-      "name": "DailyMed - Acetaminophen tablet",
-      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9efcce86-dd57-4ea2-ad31-d2038eb61bf1"
+      "name": "DailyMed search - Acetaminophen",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=acetaminophen"
     }
   },
   {
@@ -27,8 +27,8 @@
     "precautions": ["stomach bleeding risk", "heart attack and stroke risk can increase with NSAIDs", "avoid combining with other NSAIDs unless told by a clinician"],
     "when_to_ask_doctor": ["black stools", "vomiting blood", "swelling or wheezing", "chest pain", "persistent pain or fever"],
     "source": {
-      "name": "DailyMed - Ibuprofen tablet",
-      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a5ad1cd-e6a3-44ad-b9b8-ff9b66f390f6"
+      "name": "DailyMed search - Ibuprofen",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=ibuprofen"
     }
   },
   {
@@ -43,8 +43,8 @@
     "precautions": ["not for viral infections like the common cold", "allergy to penicillins is important", "dose may need adjustment in severe kidney impairment"],
     "when_to_ask_doctor": ["rash or allergic reaction", "severe diarrhea", "trouble breathing", "symptoms not improving"],
     "source": {
-      "name": "DailyMed - Amoxicillin capsule",
-      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=51b3f955-1c00-44f4-b858-410813bd148f"
+      "name": "DailyMed search - Amoxicillin",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=amoxicillin"
     }
   },
   {
@@ -59,8 +59,8 @@
     "precautions": ["not meant for immediate symptom relief", "full effect may take 1 to 4 days", "do not use if allergic to omeprazole"],
     "when_to_ask_doctor": ["heartburn does not improve", "difficulty swallowing", "vomiting blood", "black stools"],
     "source": {
-      "name": "DailyMed - Omeprazole delayed release tablet",
-      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a5df7dac-00f4-4d97-9586-cde3055890ac"
+      "name": "DailyMed search - Omeprazole",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=omeprazole"
     }
   },
   {
@@ -75,8 +75,8 @@
     "precautions": ["be careful with alcohol or sedatives", "kidney or liver disease may affect dosing"],
     "when_to_ask_doctor": ["symptoms do not improve", "severe allergic reaction", "too much sleepiness"],
     "source": {
-      "name": "DailyMed - Cetirizine hydrochloride tablet",
-      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ed0eecfb-85bf-63bf-e053-2995a90a0e03"
+      "name": "DailyMed search - Cetirizine",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=cetirizine"
     }
   },
   {
@@ -91,8 +91,8 @@
     "precautions": ["not a substitute for controller medicines", "needing it more often can signal worsening asthma", "do not exceed prescribed use"],
     "when_to_ask_doctor": ["breathing gets worse", "inhaler stops helping", "you need more doses than usual", "chest pain or severe palpitations"],
     "source": {
-      "name": "DailyMed - Albuterol sulfate inhalation aerosol",
-      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=973b8686-c6ce-4280-85c4-c1e7ceab3c09"
+      "name": "DailyMed search - Albuterol sulfate",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=albuterol+sulfate"
     }
   },
   {
@@ -107,8 +107,8 @@
     "precautions": ["kidney function matters", "not appropriate in severe renal impairment", "may need to be stopped around some contrast imaging procedures"],
     "when_to_ask_doctor": ["severe vomiting or diarrhea", "dehydration", "weakness", "breathing trouble", "kidney issues"],
     "source": {
-      "name": "DailyMed - Metformin hydrochloride tablet",
-      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e4fbc420-4ed3-43fc-934d-ec0287cb6cc8"
+      "name": "DailyMed search - Metformin hydrochloride",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=metformin+hydrochloride"
     }
   },
   {
@@ -123,8 +123,8 @@
     "precautions": ["blood pressure may become too low", "monitor swelling or worsening chest symptoms"],
     "when_to_ask_doctor": ["fainting", "worsening chest pain", "marked swelling", "persistent dizziness"],
     "source": {
-      "name": "DailyMed - Amlodipine besylate tablet",
-      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=094498f2-11d9-2a05-e063-6294a90ab2e1"
+      "name": "DailyMed search - Amlodipine besylate",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=amlodipine+besylate"
     }
   },
   {
@@ -139,8 +139,8 @@
     "precautions": ["avoid during pregnancy", "kidney function and potassium may need monitoring", "first doses can lower blood pressure"],
     "when_to_ask_doctor": ["swelling of face or lips", "fainting", "very low blood pressure symptoms", "reduced urination"],
     "source": {
-      "name": "DailyMed - Lisinopril tablet",
-      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e7f9f0b-1f00-4e8e-8759-2f9c2eb6996c"
+      "name": "DailyMed search - Lisinopril",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=lisinopril"
     }
   },
   {
@@ -155,8 +155,8 @@
     "precautions": ["dose may need adjustment in kidney impairment", "persistent symptoms still need evaluation"],
     "when_to_ask_doctor": ["difficulty swallowing", "vomiting blood", "black stools", "ongoing pain despite treatment"],
     "source": {
-      "name": "DailyMed - Famotidine tablet",
-      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f67bcbc7-952c-61c0-e053-2a95a90a6fa6"
+      "name": "DailyMed search - Famotidine",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/search.cfm?query=famotidine"
     }
   }
 ]
