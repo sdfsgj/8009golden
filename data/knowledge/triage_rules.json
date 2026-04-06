@@ -1,0 +1,285 @@
+[
+  {
+    "id": "rule_01",
+    "title": "Chest pain with shortness of breath",
+    "severity": "emergency",
+    "triggers_any": ["chest_pain", "shortness_of_breath"],
+    "logic": "all",
+    "message": "Chest pain together with breathing difficulty can signal a serious heart or lung problem. Seek emergency care immediately.",
+    "action": "Go to the emergency department or call emergency services now.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_02",
+    "title": "Persistent chest pain or pressure",
+    "severity": "emergency",
+    "triggers_any": ["chest_pain"],
+    "logic": "all",
+    "qualifiers": ["persistent", "pressure", "crushing", "not going away"],
+    "message": "Persistent chest pain or pressure needs urgent evaluation.",
+    "action": "Seek emergency medical care immediately.",
+    "source": {
+      "name": "MedlinePlus - Chest Pain",
+      "url": "https://medlineplus.gov/chestpain.html"
+    }
+  },
+  {
+    "id": "rule_03",
+    "title": "Severe or worsening shortness of breath",
+    "severity": "emergency",
+    "triggers_any": ["shortness_of_breath"],
+    "logic": "all",
+    "qualifiers": ["severe", "worsening", "cannot catch breath"],
+    "message": "Severe breathing difficulty can become dangerous quickly.",
+    "action": "Seek emergency medical care immediately.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_04",
+    "title": "Confusion or inability to stay alert",
+    "severity": "emergency",
+    "triggers_any": ["confusion", "fatigue", "dizziness"],
+    "logic": "any",
+    "qualifiers": ["confused", "hard to wake", "cannot stay alert", "not interacting"],
+    "message": "Confusion or inability to stay alert is an emergency warning sign.",
+    "action": "Seek emergency care now.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_05",
+    "title": "Dizziness with chest pain or breathing trouble",
+    "severity": "emergency",
+    "triggers_any": ["dizziness", "chest_pain", "shortness_of_breath"],
+    "logic": "combo",
+    "combo_groups": [["dizziness", "chest_pain"], ["dizziness", "shortness_of_breath"]],
+    "message": "Dizziness along with chest pain or breathing trouble can indicate a serious condition.",
+    "action": "Get urgent emergency evaluation.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_06",
+    "title": "Severe or persistent vomiting",
+    "severity": "urgent",
+    "triggers_any": ["nausea_vomiting"],
+    "logic": "all",
+    "qualifiers": ["persistent", "severe", "cannot keep fluids down"],
+    "message": "Severe or persistent vomiting increases the risk of dehydration and may point to a more serious problem.",
+    "action": "Seek same-day medical care. Go to emergency care if symptoms are severe.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_07",
+    "title": "Vomiting blood",
+    "severity": "emergency",
+    "triggers_any": ["nausea_vomiting"],
+    "logic": "all",
+    "qualifiers": ["blood in vomit", "vomiting blood"],
+    "message": "Blood in vomit requires urgent medical evaluation.",
+    "action": "Go to the emergency department now.",
+    "source": {
+      "name": "MedlinePlus - Abdominal Pain",
+      "url": "https://medlineplus.gov/abdominalpain.html"
+    }
+  },
+  {
+    "id": "rule_08",
+    "title": "Severe abdominal pain",
+    "severity": "urgent",
+    "triggers_any": ["abdominal_pain"],
+    "logic": "all",
+    "qualifiers": ["severe", "sharp", "sudden"],
+    "message": "Sudden or severe abdominal pain can signal a serious abdominal condition.",
+    "action": "Seek urgent medical care promptly.",
+    "source": {
+      "name": "MedlinePlus - Abdominal Pain",
+      "url": "https://medlineplus.gov/abdominalpain.html"
+    }
+  },
+  {
+    "id": "rule_09",
+    "title": "Abdominal pain with rigid abdomen",
+    "severity": "emergency",
+    "triggers_any": ["abdominal_pain"],
+    "logic": "all",
+    "qualifiers": ["hard abdomen", "stiff abdomen", "tender rigid abdomen"],
+    "message": "A hard, rigid, or very tender abdomen may indicate an emergency.",
+    "action": "Seek emergency medical care immediately.",
+    "source": {
+      "name": "MedlinePlus - Abdominal Pain",
+      "url": "https://medlineplus.gov/abdominalpain.html"
+    }
+  },
+  {
+    "id": "rule_10",
+    "title": "Abdominal pain with chest pain",
+    "severity": "emergency",
+    "triggers_any": ["abdominal_pain", "chest_pain"],
+    "logic": "combo",
+    "combo_groups": [["abdominal_pain", "chest_pain"]],
+    "message": "Abdominal pain together with chest pain needs urgent assessment.",
+    "action": "Go to the emergency department now.",
+    "source": {
+      "name": "MedlinePlus - Abdominal Pain",
+      "url": "https://medlineplus.gov/abdominalpain.html"
+    }
+  },
+  {
+    "id": "rule_11",
+    "title": "Diarrhea with dehydration signs",
+    "severity": "urgent",
+    "triggers_any": ["diarrhea"],
+    "logic": "all",
+    "qualifiers": ["dry mouth", "dark urine", "very little urine", "dehydration"],
+    "message": "Diarrhea can become dangerous when it causes dehydration.",
+    "action": "Seek prompt medical care and replace fluids.",
+    "source": {
+      "name": "MedlinePlus - Diarrhea",
+      "url": "https://medlineplus.gov/diarrhea.html"
+    }
+  },
+  {
+    "id": "rule_12",
+    "title": "Diarrhea with blood, pus, or black stools",
+    "severity": "urgent",
+    "triggers_any": ["diarrhea"],
+    "logic": "all",
+    "qualifiers": ["blood in stool", "pus in stool", "black stool", "tarry stool"],
+    "message": "Blood, pus, or black stools with diarrhea need medical evaluation.",
+    "action": "Seek urgent medical care.",
+    "source": {
+      "name": "MedlinePlus - Diarrhea",
+      "url": "https://medlineplus.gov/diarrhea.html"
+    }
+  },
+  {
+    "id": "rule_13",
+    "title": "High fever with worsening cough after improvement",
+    "severity": "urgent",
+    "triggers_any": ["fever", "cough"],
+    "logic": "combo",
+    "combo_groups": [["fever", "cough"]],
+    "qualifiers": ["improved then got worse", "returned fever", "worse cough"],
+    "message": "Fever or cough that gets better and then worsens can be a warning sign of complication.",
+    "action": "Seek prompt medical care.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_14",
+    "title": "Headache with stiff neck or confusion",
+    "severity": "emergency",
+    "triggers_any": ["headache", "confusion"],
+    "logic": "combo",
+    "combo_groups": [["headache", "confusion"]],
+    "qualifiers": ["stiff neck", "fever", "confusion"],
+    "message": "A headache with stiff neck, fever, or confusion needs emergency evaluation.",
+    "action": "Go to emergency care now.",
+    "source": {
+      "name": "MedlinePlus - Headache",
+      "url": "https://medlineplus.gov/headache.html"
+    }
+  },
+  {
+    "id": "rule_15",
+    "title": "Headache after head injury",
+    "severity": "emergency",
+    "triggers_any": ["headache"],
+    "logic": "all",
+    "qualifiers": ["after head injury", "after blow to head"],
+    "message": "A headache after a head injury should be urgently assessed.",
+    "action": "Seek emergency medical care.",
+    "source": {
+      "name": "MedlinePlus - Headache",
+      "url": "https://medlineplus.gov/headache.html"
+    }
+  },
+  {
+    "id": "rule_16",
+    "title": "Rash with trouble breathing or facial swelling",
+    "severity": "emergency",
+    "triggers_any": ["rash", "allergic_reaction", "shortness_of_breath"],
+    "logic": "combo",
+    "combo_groups": [["rash", "shortness_of_breath"], ["allergic_reaction", "shortness_of_breath"]],
+    "qualifiers": ["facial swelling", "lip swelling", "tongue swelling"],
+    "message": "Rash plus breathing trouble or swelling can mean a severe allergic reaction.",
+    "action": "Call emergency services or go to the emergency department immediately.",
+    "source": {
+      "name": "MedlinePlus - Allergic Reactions",
+      "url": "https://medlineplus.gov/ency/article/000005.htm"
+    }
+  },
+  {
+    "id": "rule_17",
+    "title": "Fever with rash",
+    "severity": "urgent",
+    "triggers_any": ["fever", "rash"],
+    "logic": "combo",
+    "combo_groups": [["fever", "rash"]],
+    "message": "Fever together with a rash should be medically assessed promptly.",
+    "action": "Seek urgent medical care.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_18",
+    "title": "Back pain after injury",
+    "severity": "urgent",
+    "triggers_any": ["back_pain"],
+    "logic": "all",
+    "qualifiers": ["after injury", "after accident", "after fall"],
+    "message": "Back pain after an injury may need prompt medical assessment.",
+    "action": "Seek urgent medical review.",
+    "source": {
+      "name": "MedlinePlus - Back Pain",
+      "url": "https://medlineplus.gov/backpain.html"
+    }
+  },
+  {
+    "id": "rule_19",
+    "title": "Severe weakness or unsteadiness",
+    "severity": "urgent",
+    "triggers_any": ["fatigue", "dizziness"],
+    "logic": "any",
+    "qualifiers": ["severe weakness", "unsteady", "cannot stand well"],
+    "message": "Severe weakness or unsteadiness can be a warning sign of serious illness.",
+    "action": "Seek prompt medical care.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "rule_20",
+    "title": "New or severe allergy symptoms with dizziness or fainting",
+    "severity": "emergency",
+    "triggers_any": ["allergic_reaction", "dizziness"],
+    "logic": "combo",
+    "combo_groups": [["allergic_reaction", "dizziness"]],
+    "qualifiers": ["fainting", "rapid worsening", "weak pulse"],
+    "message": "Dizziness or fainting during an allergic reaction may indicate anaphylaxis.",
+    "action": "Seek emergency care immediately.",
+    "source": {
+      "name": "MedlinePlus - Allergic Reactions",
+      "url": "https://medlineplus.gov/ency/article/000005.htm"
+    }
+  }
+]

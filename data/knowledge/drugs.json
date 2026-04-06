@@ -1,0 +1,162 @@
+[
+  {
+    "id": "acetaminophen",
+    "generic_name": "Acetaminophen",
+    "brand_examples": ["Tylenol"],
+    "name_zh": "对乙酰氨基酚",
+    "category": "OTC",
+    "used_for": ["fever reduction", "headache", "minor aches and pains"],
+    "how_it_works_simple": "It helps reduce pain and fever.",
+    "common_side_effects": ["skin rash in rare cases", "liver injury risk if overdosed"],
+    "precautions": ["do not combine with other medicines that also contain acetaminophen", "avoid overdose", "use extra caution with regular alcohol use or liver disease"],
+    "when_to_ask_doctor": ["pain lasts more than expected", "fever gets worse", "signs of liver trouble", "severe skin reaction"],
+    "source": {
+      "name": "DailyMed - Acetaminophen tablet",
+      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9efcce86-dd57-4ea2-ad31-d2038eb61bf1"
+    }
+  },
+  {
+    "id": "ibuprofen",
+    "generic_name": "Ibuprofen",
+    "brand_examples": ["Advil", "Motrin"],
+    "name_zh": "布洛芬",
+    "category": "OTC",
+    "used_for": ["pain relief", "fever reduction", "muscle aches", "headache", "cold symptoms"],
+    "how_it_works_simple": "It is an NSAID that reduces pain, fever, and inflammation.",
+    "common_side_effects": ["stomach upset", "heartburn", "allergic reactions in sensitive people"],
+    "precautions": ["stomach bleeding risk", "heart attack and stroke risk can increase with NSAIDs", "avoid combining with other NSAIDs unless told by a clinician"],
+    "when_to_ask_doctor": ["black stools", "vomiting blood", "swelling or wheezing", "chest pain", "persistent pain or fever"],
+    "source": {
+      "name": "DailyMed - Ibuprofen tablet",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6a5ad1cd-e6a3-44ad-b9b8-ff9b66f390f6"
+    }
+  },
+  {
+    "id": "amoxicillin",
+    "generic_name": "Amoxicillin",
+    "brand_examples": ["Amoxil"],
+    "name_zh": "阿莫西林",
+    "category": "Prescription",
+    "used_for": ["certain bacterial infections of the ear, nose, throat, lungs, skin, urinary tract", "H. pylori combination therapy"],
+    "how_it_works_simple": "It is a penicillin-class antibiotic used against susceptible bacteria.",
+    "common_side_effects": ["nausea", "diarrhea", "rash"],
+    "precautions": ["not for viral infections like the common cold", "allergy to penicillins is important", "dose may need adjustment in severe kidney impairment"],
+    "when_to_ask_doctor": ["rash or allergic reaction", "severe diarrhea", "trouble breathing", "symptoms not improving"],
+    "source": {
+      "name": "DailyMed - Amoxicillin capsule",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=51b3f955-1c00-44f4-b858-410813bd148f"
+    }
+  },
+  {
+    "id": "omeprazole",
+    "generic_name": "Omeprazole",
+    "brand_examples": ["Prilosec OTC"],
+    "name_zh": "奥美拉唑",
+    "category": "OTC",
+    "used_for": ["frequent heartburn"],
+    "how_it_works_simple": "It lowers stomach acid production.",
+    "common_side_effects": ["headache", "stomach discomfort", "nausea"],
+    "precautions": ["not meant for immediate symptom relief", "full effect may take 1 to 4 days", "do not use if allergic to omeprazole"],
+    "when_to_ask_doctor": ["heartburn does not improve", "difficulty swallowing", "vomiting blood", "black stools"],
+    "source": {
+      "name": "DailyMed - Omeprazole delayed release tablet",
+      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a5df7dac-00f4-4d97-9586-cde3055890ac"
+    }
+  },
+  {
+    "id": "cetirizine",
+    "generic_name": "Cetirizine",
+    "brand_examples": ["Zyrtec"],
+    "name_zh": "西替利嗪",
+    "category": "OTC",
+    "used_for": ["runny nose", "sneezing", "itchy watery eyes", "itching of nose or throat due to allergies"],
+    "how_it_works_simple": "It is an antihistamine that helps relieve allergy symptoms.",
+    "common_side_effects": ["drowsiness", "dry mouth", "tiredness"],
+    "precautions": ["be careful with alcohol or sedatives", "kidney or liver disease may affect dosing"],
+    "when_to_ask_doctor": ["symptoms do not improve", "severe allergic reaction", "too much sleepiness"],
+    "source": {
+      "name": "DailyMed - Cetirizine hydrochloride tablet",
+      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ed0eecfb-85bf-63bf-e053-2995a90a0e03"
+    }
+  },
+  {
+    "id": "albuterol",
+    "generic_name": "Albuterol Sulfate",
+    "brand_examples": ["Ventolin HFA", "ProAir HFA"],
+    "name_zh": "沙丁胺醇",
+    "category": "Prescription",
+    "used_for": ["treatment or prevention of bronchospasm", "prevention of exercise-induced bronchospasm"],
+    "how_it_works_simple": "It is a rescue inhaler medicine that helps open the airways.",
+    "common_side_effects": ["fast heartbeat", "jitteriness", "tremor"],
+    "precautions": ["not a substitute for controller medicines", "needing it more often can signal worsening asthma", "do not exceed prescribed use"],
+    "when_to_ask_doctor": ["breathing gets worse", "inhaler stops helping", "you need more doses than usual", "chest pain or severe palpitations"],
+    "source": {
+      "name": "DailyMed - Albuterol sulfate inhalation aerosol",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=973b8686-c6ce-4280-85c4-c1e7ceab3c09"
+    }
+  },
+  {
+    "id": "metformin",
+    "generic_name": "Metformin Hydrochloride",
+    "brand_examples": ["Glucophage"],
+    "name_zh": "二甲双胍",
+    "category": "Prescription",
+    "used_for": ["type 2 diabetes mellitus"],
+    "how_it_works_simple": "It helps lower blood glucose by reducing glucose production in the liver, lowering absorption in the gut, and improving insulin sensitivity.",
+    "common_side_effects": ["nausea", "diarrhea", "stomach upset"],
+    "precautions": ["kidney function matters", "not appropriate in severe renal impairment", "may need to be stopped around some contrast imaging procedures"],
+    "when_to_ask_doctor": ["severe vomiting or diarrhea", "dehydration", "weakness", "breathing trouble", "kidney issues"],
+    "source": {
+      "name": "DailyMed - Metformin hydrochloride tablet",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e4fbc420-4ed3-43fc-934d-ec0287cb6cc8"
+    }
+  },
+  {
+    "id": "amlodipine",
+    "generic_name": "Amlodipine Besylate",
+    "brand_examples": ["Norvasc"],
+    "name_zh": "氨氯地平",
+    "category": "Prescription",
+    "used_for": ["hypertension", "chronic stable angina", "vasospastic angina"],
+    "how_it_works_simple": "It is a calcium channel blocker that helps lower blood pressure and improve blood flow.",
+    "common_side_effects": ["swelling", "flushing", "dizziness"],
+    "precautions": ["blood pressure may become too low", "monitor swelling or worsening chest symptoms"],
+    "when_to_ask_doctor": ["fainting", "worsening chest pain", "marked swelling", "persistent dizziness"],
+    "source": {
+      "name": "DailyMed - Amlodipine besylate tablet",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=094498f2-11d9-2a05-e063-6294a90ab2e1"
+    }
+  },
+  {
+    "id": "lisinopril",
+    "generic_name": "Lisinopril",
+    "brand_examples": ["Prinivil", "Zestril"],
+    "name_zh": "赖诺普利",
+    "category": "Prescription",
+    "used_for": ["hypertension", "heart failure", "after acute myocardial infarction"],
+    "how_it_works_simple": "It is an ACE inhibitor that helps relax blood vessels and reduce blood pressure.",
+    "common_side_effects": ["dizziness", "cough", "high potassium in some patients"],
+    "precautions": ["avoid during pregnancy", "kidney function and potassium may need monitoring", "first doses can lower blood pressure"],
+    "when_to_ask_doctor": ["swelling of face or lips", "fainting", "very low blood pressure symptoms", "reduced urination"],
+    "source": {
+      "name": "DailyMed - Lisinopril tablet",
+      "url": "https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e7f9f0b-1f00-4e8e-8759-2f9c2eb6996c"
+    }
+  },
+  {
+    "id": "famotidine",
+    "generic_name": "Famotidine",
+    "brand_examples": ["Pepcid"],
+    "name_zh": "法莫替丁",
+    "category": "Prescription",
+    "used_for": ["duodenal ulcer", "gastric ulcer", "GERD", "erosive esophagitis due to GERD"],
+    "how_it_works_simple": "It reduces stomach acid by blocking histamine H2 receptors.",
+    "common_side_effects": ["headache", "dizziness", "constipation or diarrhea"],
+    "precautions": ["dose may need adjustment in kidney impairment", "persistent symptoms still need evaluation"],
+    "when_to_ask_doctor": ["difficulty swallowing", "vomiting blood", "black stools", "ongoing pain despite treatment"],
+    "source": {
+      "name": "DailyMed - Famotidine tablet",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f67bcbc7-952c-61c0-e053-2a95a90a6fa6"
+    }
+  }
+]

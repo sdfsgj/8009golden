@@ -1,0 +1,227 @@
+[
+  {
+    "id": "fever",
+    "name": "Fever",
+    "name_zh": "发烧",
+    "aliases": ["high temperature", "pyrexia", "发热"],
+    "plain_description": "A fever means the body temperature is higher than usual. It is often a sign that the body is reacting to an infection or another illness.",
+    "common_causes": ["viral infection", "bacterial infection", "heat illness", "medicine reaction"],
+    "suggested_action": "Rest, drink fluids, and monitor the temperature and any new symptoms. Seek medical advice if the fever is very high, lasts, or is linked with other warning signs.",
+    "warning_signs": ["trouble breathing", "confusion", "severe dehydration", "chest pain", "fever that returns and gets worse"],
+    "recommended_department": ["General Practice", "Family Medicine", "Internal Medicine"],
+    "source": {
+      "name": "MedlinePlus - Fever",
+      "url": "https://medlineplus.gov/fever.html"
+    }
+  },
+  {
+    "id": "cough",
+    "name": "Cough",
+    "name_zh": "咳嗽",
+    "aliases": ["dry cough", "wet cough", "咳"],
+    "plain_description": "A cough is a reflex that helps clear the throat and airways. It can happen with short-term infections or longer-term conditions.",
+    "common_causes": ["common cold", "flu", "acute bronchitis", "asthma", "allergies", "GERD", "smoking"],
+    "suggested_action": "Drink water, rest, and watch for how long the cough lasts. Short-term coughs often improve, but a long-lasting or worsening cough should be checked.",
+    "warning_signs": ["shortness of breath", "chest pain", "cough getting worse after improvement", "high fever", "confusion"],
+    "recommended_department": ["General Practice", "Family Medicine", "Respiratory Medicine"],
+    "source": {
+      "name": "MedlinePlus - Cough",
+      "url": "https://medlineplus.gov/cough.html"
+    }
+  },
+  {
+    "id": "sore_throat",
+    "name": "Sore Throat",
+    "name_zh": "喉咙痛",
+    "aliases": ["pharyngitis", "throat pain", "咽喉痛"],
+    "plain_description": "A sore throat is pain, discomfort, or scratchiness in the throat. It is commonly linked to viral infections but can have other causes.",
+    "common_causes": ["common cold", "flu", "allergies", "tonsillitis", "strep throat", "smoking"],
+    "suggested_action": "Drink fluids and consider soothing measures such as lozenges or warm salt-water gargles. If it is severe or does not improve, medical review may be needed.",
+    "warning_signs": ["trouble breathing", "unable to swallow fluids", "high fever", "worsening symptoms", "severe swelling"],
+    "recommended_department": ["General Practice", "Family Medicine", "ENT"],
+    "source": {
+      "name": "MedlinePlus - Sore Throat",
+      "url": "https://medlineplus.gov/sorethroat.html"
+    }
+  },
+  {
+    "id": "headache",
+    "name": "Headache",
+    "name_zh": "头痛",
+    "aliases": ["head pain", "migraine symptom", "头疼"],
+    "plain_description": "Headache is one of the most common types of pain. Many headaches are not serious, but some can be a warning sign of an urgent problem.",
+    "common_causes": ["tension headache", "migraine", "lack of sleep", "stress", "sinus issues"],
+    "suggested_action": "Rest, hydrate, and note when the headache started and whether it is new, sudden, or linked with other symptoms.",
+    "warning_signs": ["sudden severe headache", "stiff neck", "fever", "confusion", "loss of consciousness", "head injury"],
+    "recommended_department": ["General Practice", "Family Medicine", "Neurology"],
+    "source": {
+      "name": "MedlinePlus - Headache",
+      "url": "https://medlineplus.gov/headache.html"
+    }
+  },
+  {
+    "id": "shortness_of_breath",
+    "name": "Shortness of Breath",
+    "name_zh": "呼吸困难",
+    "aliases": ["breathlessness", "dyspnea", "喘不过气"],
+    "plain_description": "Shortness of breath means it feels hard or uncomfortable to get enough air. It can happen for mild reasons, but it can also signal a serious heart or lung problem.",
+    "common_causes": ["asthma", "pneumonia", "heart disease", "allergies", "anxiety or panic attacks"],
+    "suggested_action": "If symptoms are mild and brief, monitor closely. If breathing is difficult, worsening, or linked with chest pain, urgent medical care is needed.",
+    "warning_signs": ["chest pain", "bluish lips or face", "confusion", "persistent dizziness", "severe weakness"],
+    "recommended_department": ["Emergency Department", "Respiratory Medicine", "Cardiology"],
+    "source": {
+      "name": "MedlinePlus - Breathing Problems",
+      "url": "https://medlineplus.gov/breathingproblems.html"
+    }
+  },
+  {
+    "id": "chest_pain",
+    "name": "Chest Pain",
+    "name_zh": "胸痛",
+    "aliases": ["chest pressure", "tight chest", "胸口疼"],
+    "plain_description": "Chest pain can come from the heart, lungs, digestive tract, muscles, or other tissues. Some causes are mild, but some need immediate care.",
+    "common_causes": ["heart-related problems", "heartburn", "panic attack", "muscle strain", "lung disease", "costochondritis"],
+    "suggested_action": "Chest pain should be taken seriously, especially if it is new, persistent, crushing, or linked with other urgent symptoms.",
+    "warning_signs": ["shortness of breath", "nausea", "sweating", "dizziness", "pain that does not go away", "crushing pressure"],
+    "recommended_department": ["Emergency Department", "Cardiology", "General Medicine"],
+    "source": {
+      "name": "MedlinePlus - Chest Pain",
+      "url": "https://medlineplus.gov/chestpain.html"
+    }
+  },
+  {
+    "id": "abdominal_pain",
+    "name": "Abdominal Pain",
+    "name_zh": "腹痛",
+    "aliases": ["belly pain", "stomach pain", "肚子痛"],
+    "plain_description": "Abdominal pain is pain anywhere between the chest and groin. It can come from many organs, so the cause is not always obvious from the pain alone.",
+    "common_causes": ["indigestion", "infection", "constipation", "gastrointestinal inflammation", "gallbladder or urinary problems"],
+    "suggested_action": "Monitor where the pain is, how severe it is, and what other symptoms happen with it. Sudden sharp pain or pain with bleeding needs urgent care.",
+    "warning_signs": ["sudden sharp pain", "vomiting blood", "blood in stool", "rigid abdomen", "cannot pass stool with vomiting", "chest pain"],
+    "recommended_department": ["General Practice", "Gastroenterology", "Emergency Department"],
+    "source": {
+      "name": "MedlinePlus - Abdominal Pain",
+      "url": "https://medlineplus.gov/abdominalpain.html"
+    }
+  },
+  {
+    "id": "nausea_vomiting",
+    "name": "Nausea and Vomiting",
+    "name_zh": "恶心和呕吐",
+    "aliases": ["vomiting", "nausea", "throwing up", "呕吐"],
+    "plain_description": "Nausea is the feeling that you may vomit, and vomiting is when stomach contents come up through the mouth. They are common symptoms with many possible causes.",
+    "common_causes": ["gastroenteritis", "food poisoning", "migraine", "motion sickness", "pregnancy", "medicine side effects", "GERD"],
+    "suggested_action": "Take small amounts of clear fluids to avoid dehydration and avoid foods or smells that worsen symptoms.",
+    "warning_signs": ["vomiting for more than 24 hours", "blood in vomit", "severe abdominal pain", "severe headache with stiff neck", "signs of dehydration"],
+    "recommended_department": ["General Practice", "Family Medicine", "Emergency Department"],
+    "source": {
+      "name": "MedlinePlus - Nausea and Vomiting",
+      "url": "https://medlineplus.gov/nauseaandvomiting.html"
+    }
+  },
+  {
+    "id": "diarrhea",
+    "name": "Diarrhea",
+    "name_zh": "腹泻",
+    "aliases": ["loose stool", "watery stool", "拉肚子"],
+    "plain_description": "Diarrhea means loose or watery stools. Short-term diarrhea is common, but it can become dangerous when it causes dehydration or bleeding.",
+    "common_causes": ["viral infection", "bacterial infection", "contaminated food or water", "antibiotics", "food intolerance"],
+    "suggested_action": "Replace lost fluids and monitor for dehydration. Persistent diarrhea or diarrhea with fever, blood, or severe pain should be checked.",
+    "warning_signs": ["signs of dehydration", "blood or pus in stool", "black or tarry stools", "fever 102 F or higher", "severe abdominal pain"],
+    "recommended_department": ["General Practice", "Family Medicine", "Gastroenterology"],
+    "source": {
+      "name": "MedlinePlus - Diarrhea",
+      "url": "https://medlineplus.gov/diarrhea.html"
+    }
+  },
+  {
+    "id": "fatigue",
+    "name": "Fatigue",
+    "name_zh": "疲劳",
+    "aliases": ["tiredness", "weariness", "乏力"],
+    "plain_description": "Fatigue is more than just being sleepy. It is a sense of low energy that can affect daily life and may come from lifestyle factors or illness.",
+    "common_causes": ["poor sleep", "stress", "too little exercise", "too much caffeine", "anemia", "depression", "chronic illness"],
+    "suggested_action": "Review sleep, stress, activity, and other symptoms. Fatigue lasting for weeks should be medically reviewed.",
+    "warning_signs": ["shortness of breath", "chest pain", "confusion", "severe weakness", "persistent fatigue for weeks"],
+    "recommended_department": ["General Practice", "Family Medicine", "Internal Medicine"],
+    "source": {
+      "name": "MedlinePlus - Fatigue",
+      "url": "https://medlineplus.gov/fatigue.html"
+    }
+  },
+  {
+    "id": "rash",
+    "name": "Rash",
+    "name_zh": "皮疹",
+    "aliases": ["skin rash", "dermatitis", "红疹"],
+    "plain_description": "A rash is an irritated or swollen area of skin. It may be itchy, red, painful, blistered, or patchy depending on the cause.",
+    "common_causes": ["contact dermatitis", "allergies", "infection", "skin irritation", "eczema"],
+    "suggested_action": "Note when the rash started, whether it is spreading, and whether there are trigger exposures such as new medicines or chemicals.",
+    "warning_signs": ["trouble breathing", "facial swelling", "blisters", "fever with rash", "rapidly spreading rash"],
+    "recommended_department": ["Dermatology", "General Practice", "Emergency Department"],
+    "source": {
+      "name": "MedlinePlus - Rashes",
+      "url": "https://medlineplus.gov/dermatitis.html"
+    }
+  },
+  {
+    "id": "dizziness",
+    "name": "Dizziness",
+    "name_zh": "头晕",
+    "aliases": ["lightheadedness", "vertigo", "眩晕"],
+    "plain_description": "Dizziness may mean feeling faint, woozy, or off balance. Some people mean vertigo, where it feels as if they or the room are spinning.",
+    "common_causes": ["dehydration", "sudden drop in blood pressure", "viral illness", "low blood sugar", "inner ear problems"],
+    "suggested_action": "Sit or lie down safely, hydrate if appropriate, and monitor whether symptoms are brief or keep returning.",
+    "warning_signs": ["chest pain", "shortness of breath", "confusion", "fainting", "sudden severe symptoms"],
+    "recommended_department": ["General Practice", "Family Medicine", "Emergency Department"],
+    "source": {
+      "name": "MedlinePlus - Dizziness and Vertigo",
+      "url": "https://medlineplus.gov/dizzinessandvertigo.html"
+    }
+  },
+  {
+    "id": "runny_nose",
+    "name": "Runny or Stuffy Nose",
+    "name_zh": "流鼻涕或鼻塞",
+    "aliases": ["nasal congestion", "runny nose", "鼻塞", "流鼻水"],
+    "plain_description": "A runny or stuffy nose is often caused by inflammation in the nasal lining. It commonly happens with colds, flu, sinus problems, or allergies.",
+    "common_causes": ["common cold", "flu", "sinus infection", "allergies", "nasal spray overuse"],
+    "suggested_action": "Monitor for duration, facial swelling, and throat symptoms. Many mild cases improve on their own within about a week.",
+    "warning_signs": ["swelling around eyes or forehead", "blurred vision", "worsening throat pain", "persistent severe symptoms"],
+    "recommended_department": ["General Practice", "Family Medicine", "ENT"],
+    "source": {
+      "name": "MedlinePlus Medical Encyclopedia - Stuffy or Runny Nose",
+      "url": "https://medlineplus.gov/ency/article/003049.htm"
+    }
+  },
+  {
+    "id": "back_pain",
+    "name": "Back Pain",
+    "name_zh": "背痛",
+    "aliases": ["backache", "lumbago", "腰背痛"],
+    "plain_description": "Back pain is very common and may feel dull, stiff, or sharp. Many cases improve with time, but severe or injury-related pain should be assessed.",
+    "common_causes": ["muscle strain", "poor posture", "lifting injury", "disc problems", "arthritis"],
+    "suggested_action": "Avoid long bed rest, note whether there was an injury, and watch whether pain improves over a few days.",
+    "warning_signs": ["back pain after injury", "severe pain", "pain not improving after several days", "weakness", "numbness"],
+    "recommended_department": ["General Practice", "Orthopedics", "Rehabilitation Medicine"],
+    "source": {
+      "name": "MedlinePlus - Back Pain",
+      "url": "https://medlineplus.gov/backpain.html"
+    }
+  },
+  {
+    "id": "allergic_reaction",
+    "name": "Allergic Reaction",
+    "name_zh": "过敏反应",
+    "aliases": ["allergy reaction", "hypersensitivity", "过敏"],
+    "plain_description": "An allergic reaction can range from mild itching or rash to a severe reaction called anaphylaxis, which can become life-threatening quickly.",
+    "common_causes": ["foods", "medicines", "insect stings", "latex", "environmental allergens"],
+    "suggested_action": "Watch closely for breathing difficulty, facial swelling, or worsening symptoms after exposure to a likely allergen.",
+    "warning_signs": ["trouble breathing", "swollen tongue or throat", "dizziness", "fainting", "rapid worsening symptoms"],
+    "recommended_department": ["Emergency Department", "Allergy Clinic", "General Practice"],
+    "source": {
+      "name": "MedlinePlus Medical Encyclopedia - Allergic Reactions",
+      "url": "https://medlineplus.gov/ency/article/000005.htm"
+    }
+  }
+]

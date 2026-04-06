@@ -1,0 +1,52 @@
+[
+  {
+    "id": "disclaimer_01",
+    "type": "general",
+    "title": "For educational use only",
+    "message": "This demo provides general health education and symptom explanation only. It is not a substitute for professional medical care.",
+    "source": {
+      "name": "NIH FAQ - Medical advice",
+      "url": "https://www.nih.gov/about-nih/frequently-asked-questions"
+    }
+  },
+  {
+    "id": "disclaimer_02",
+    "type": "diagnosis_boundary",
+    "title": "Not a diagnosis tool",
+    "message": "This system does not provide formal diagnosis, personalized treatment plans, or prescriptions. Always consult a qualified clinician for decisions about your care.",
+    "source": {
+      "name": "NIH FAQ - Medical advice",
+      "url": "https://www.nih.gov/about-nih/frequently-asked-questions"
+    }
+  },
+  {
+    "id": "disclaimer_03",
+    "type": "emergency",
+    "title": "Emergency symptoms need urgent care",
+    "message": "If you have emergency warning signs such as trouble breathing, persistent chest pain or pressure, confusion, severe allergic reaction, or severe dehydration, seek emergency medical care immediately.",
+    "source": {
+      "name": "CDC - Emergency warning signs",
+      "url": "https://archive.cdc.gov/www_cdc_gov/h1n1flu/warningsigns.htm"
+    }
+  },
+  {
+    "id": "disclaimer_04",
+    "type": "internet_health_info",
+    "title": "Do not self-diagnose from web content",
+    "message": "Health information on the internet should not replace professional medical help. Use this demo to support questions and discussion with a healthcare provider, not for self-diagnosis or self-treatment in serious illness.",
+    "source": {
+      "name": "NIH FAQ - Health information on the Internet",
+      "url": "https://www.nih.gov/about-nih/frequently-asked-questions"
+    }
+  },
+  {
+    "id": "disclaimer_05",
+    "type": "drug_info",
+    "title": "Drug information is simplified",
+    "message": "Medication information in this demo is simplified from public drug-label sources for classroom demonstration. Real prescribing, dosing, warnings, and contraindications must be confirmed from a clinician or official label.",
+    "source": {
+      "name": "FDA label repository disclaimer",
+      "url": "https://labels.fda.gov/"
+    }
+  }
+]
