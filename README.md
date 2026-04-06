@@ -34,6 +34,7 @@ The app reads local JSON files from:
 1. Push this folder to a GitHub repository.
 2. Import the repo into Vercel.
 3. In Vercel Project Settings, add `SILICONFLOW_API_KEY` and optionally `SILICONFLOW_BASE_URL` and `SILICONFLOW_MODEL`.
+   Recommended base URL: `https://api.siliconflow.com/v1`
 4. Keep the default Next.js build settings.
 
 If you do not configure `SILICONFLOW_API_KEY`, the local classifier demo will still work, but the model enhancement button will return an error until the server env var is set.

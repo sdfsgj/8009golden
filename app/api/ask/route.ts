@@ -10,7 +10,7 @@ type AskBody = {
 
 export async function POST(request: Request) {
   const apiKey = process.env.SILICONFLOW_API_KEY;
-  const baseURL = process.env.SILICONFLOW_BASE_URL ?? "https://api.siliconflow.cn/v1";
+  const baseURL = process.env.SILICONFLOW_BASE_URL ?? "https://api.siliconflow.com/v1";
 
   if (!apiKey) {
     return NextResponse.json(
