@@ -190,7 +190,7 @@ export function createDemoResponse(query: string, knowledge: KnowledgeBase): Dem
 
   const summary =
     queryType === "risk_triage"
-      ? "This question matches a higher-risk symptom pattern, so the response should stay short, safety-first, and action-oriented."
+      ? "This query matches a higher-risk pattern and should return a short, safety-first response."
       : queryType === "drug_info"
         ? "This question is mainly about medication explanation, so the answer should focus on uses, benefits, side effects, and precautions."
         : queryType === "symptom_understanding"
@@ -212,7 +212,9 @@ export function createDemoResponse(query: string, knowledge: KnowledgeBase): Dem
     keyFindings: keyFindings.length > 0 ? keyFindings : ["No direct symptom or drug match found. The user may need to describe the problem more clearly."],
     suggestedActions:
       suggestedActions.length > 0
-        ? suggestedActions
+        ? queryType === "risk_triage"
+          ? suggestedActions.slice(0, 2)
+          : suggestedActions
         : ["Advise the user to describe the symptom, timing, severity, and any red-flag signs."],
     notes:
       notes.length > 0

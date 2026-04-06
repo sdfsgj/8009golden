@@ -9,38 +9,92 @@ type DashboardProps = {
   knowledge: KnowledgeBase;
 };
 
+type AudienceMode = "patient" | "clinician";
+
 type HistoryItem = {
   id: string;
   query: string;
+  caseType: string;
   localResponse: ReturnType<typeof createDemoResponse>;
   aiAnswer?: string;
   aiModel?: string;
   aiError?: string;
 };
 
-const samplePrompts = [
-  "I have had fever, cough, and sore throat for three days. What should I do?",
-  "What is amoxicillin used for? Does it have side effects?",
-  "I have chest pain and shortness of breath. Should I wait and see?"
-];
+const sampleCaseMeta = [
+  {
+    label: "Symptom case",
+    expected: "Symptom understanding",
+    queryType: "symptom_understanding",
+    prompt: "I have had fever, cough, and sore throat for three days. What should I do?"
+  },
+  {
+    label: "Drug case",
+    expected: "Drug explanation",
+    queryType: "drug_info",
+    prompt: "What is amoxicillin used for? Does it have side effects?"
+  },
+  {
+    label: "Urgent case",
+    expected: "Risk triage",
+    queryType: "risk_triage",
+    prompt: "I have chest pain and shortness of breath. Should I wait and see?"
+  }
+] as const;
 
-function createHistoryItem(query: string, knowledge: KnowledgeBase): HistoryItem {
+function createHistoryItem(
+  query: string,
+  knowledge: KnowledgeBase,
+  caseType = "Live query"
+): HistoryItem {
   return {
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     query,
+    caseType,
     localResponse: createDemoResponse(query, knowledge)
   };
 }
 
+function buildFinalValidatedAnswer(item: HistoryItem, mode: AudienceMode) {
+  const local = item.localResponse;
+
+  if (mode === "clinician") {
+    const matched = [
+      ...local.matchedSymptoms.map((symptom) => symptom.name),
+      ...local.matchedDrugs.map((drug) => drug.generic_name),
+      ...local.matchedRules.map((rule) => rule.title)
+    ]
+      .slice(0, 4)
+      .join(", ");
+
+    return [
+      `Route: ${local.title}.`,
+      `Matched evidence: ${matched || "No strong direct match"}.`,
+      `Immediate action: ${local.suggestedActions[0]}`,
+      `Safety validation: ${local.safetyReminder}`
+    ].join(" ");
+  }
+
+  return [
+    local.summary,
+    `Suggested next step: ${local.suggestedActions[0]}`,
+    `Safety note: ${local.safetyReminder}`
+  ].join(" ");
+}
+
 export function Dashboard({ knowledge }: DashboardProps) {
   const initialHistory = useMemo(
-    () => [createHistoryItem(samplePrompts[2], knowledge)],
+    () =>
+      sampleCaseMeta.map((item) =>
+        createHistoryItem(item.prompt, knowledge, item.label)
+      ),
     [knowledge]
   );
 
-  const [query, setQuery] = useState(samplePrompts[2]);
+  const [query, setQuery] = useState<string>(sampleCaseMeta[2].prompt);
   const [history, setHistory] = useState<HistoryItem[]>(initialHistory);
-  const [selectedId, setSelectedId] = useState(initialHistory[0]?.id ?? "");
+  const [selectedId, setSelectedId] = useState(initialHistory[2]?.id ?? "");
+  const [audienceMode, setAudienceMode] = useState<AudienceMode>("patient");
   const [isPending, startTransition] = useTransition();
 
   const selectedItem =
@@ -48,11 +102,31 @@ export function Dashboard({ knowledge }: DashboardProps) {
     history[history.length - 1] ??
     initialHistory[0];
 
+  const active = selectedItem.localResponse;
+
   const stats = [
     { label: "Symptoms", value: knowledge.symptoms.length },
     { label: "Drugs", value: knowledge.drugs.length },
     { label: "Triage Rules", value: knowledge.triageRules.length },
     { label: "Disclaimers", value: knowledge.disclaimers.length }
+  ];
+
+  const evidenceItems = [
+    ...active.matchedSymptoms.map((symptom) => ({
+      label: `Symptom card: ${symptom.name}`,
+      source: symptom.source.name,
+      url: symptom.source.url
+    })),
+    ...active.matchedDrugs.map((drug) => ({
+      label: `Drug source: ${drug.generic_name}`,
+      source: drug.source.name,
+      url: drug.source.url
+    })),
+    ...active.matchedRules.map((rule) => ({
+      label: `Triage rule: ${rule.title}`,
+      source: rule.source.name,
+      url: rule.source.url
+    }))
   ];
 
   function handleAnalyze() {
@@ -120,7 +194,7 @@ export function Dashboard({ knowledge }: DashboardProps) {
     });
   }
 
-  const active = selectedItem.localResponse;
+  const finalValidatedAnswer = buildFinalValidatedAnswer(selectedItem, audienceMode);
 
   return (
     <main className="page-shell">
@@ -141,6 +215,9 @@ export function Dashboard({ knowledge }: DashboardProps) {
             and urgent warning signs in a safer and more structured way than a general
             chatbot.
           </p>
+          <p className="agentic-line">
+            Agentic workflow: classify - retrieve/ground - generate - safety validate.
+          </p>
           <div className="hero-actions">
             <a href="#demo" className="primary-link">
               Open assistant
@@ -160,6 +237,9 @@ export function Dashboard({ knowledge }: DashboardProps) {
             <p className="hero-highlight-label">Primary use case</p>
             <strong>Patient education and clinician-friendly communication support</strong>
             <span>Local triage logic, medicine knowledge, and AI-assisted response drafting</span>
+          </div>
+          <div className="hero-evidence-note">
+            Curated from public medical education sources for classroom prototype use.
           </div>
           <div className="stats-grid">
             {stats.map((stat) => (
@@ -185,8 +265,8 @@ export function Dashboard({ knowledge }: DashboardProps) {
         </article>
         <article className="workflow-card">
           <span className="workflow-step">03</span>
-          <h3>Return structured guidance</h3>
-          <p>The assistant presents findings, suggested action, and safety reminders.</p>
+          <h3>Return validated output</h3>
+          <p>The assistant presents findings, suggested action, and a final safety-reviewed answer.</p>
         </article>
       </section>
 
@@ -221,14 +301,14 @@ export function Dashboard({ knowledge }: DashboardProps) {
               />
 
               <div className="prompt-list">
-                {samplePrompts.map((prompt) => (
+                {sampleCaseMeta.map((item) => (
                   <button
-                    key={prompt}
+                    key={item.prompt}
                     type="button"
                     className="prompt-chip"
-                    onClick={() => setQuery(prompt)}
+                    onClick={() => setQuery(item.prompt)}
                   >
-                    {prompt}
+                    {item.prompt}
                   </button>
                 ))}
               </div>
@@ -255,7 +335,7 @@ export function Dashboard({ knowledge }: DashboardProps) {
 
             <div className="history-header">
               <span className="panel-label">Interaction history</span>
-              <p className="history-caption">Select an earlier query to reopen its review state.</p>
+              <p className="history-caption">These seeded cases also work as a small classroom test set.</p>
             </div>
             <div className="history-list">
               {history.map((item, index) => (
@@ -268,7 +348,9 @@ export function Dashboard({ knowledge }: DashboardProps) {
                   <span className="history-item-index">#{index + 1}</span>
                   <span className="history-item-body">
                     <span className="history-item-text">{item.query}</span>
-                    <span className="history-item-meta">{item.localResponse.title}</span>
+                    <span className="history-item-meta">
+                      {item.caseType} - {item.localResponse.title}
+                    </span>
                   </span>
                 </button>
               ))}
@@ -281,51 +363,88 @@ export function Dashboard({ knowledge }: DashboardProps) {
                 <span className="panel-label">Response review</span>
                 <h3>AI Assistant Response</h3>
               </div>
-              <span
-                className={
-                  active.queryType === "risk_triage"
-                    ? "severity severity-emergency"
-                    : "severity severity-info"
-                }
-              >
-                {active.queryType.replaceAll("_", " ")}
-              </span>
+              <div className="answer-header-controls">
+                <div className="audience-toggle">
+                  <button
+                    type="button"
+                    className={`toggle-chip${audienceMode === "patient" ? " toggle-chip-active" : ""}`}
+                    onClick={() => setAudienceMode("patient")}
+                  >
+                    Patient-friendly
+                  </button>
+                  <button
+                    type="button"
+                    className={`toggle-chip${audienceMode === "clinician" ? " toggle-chip-active" : ""}`}
+                    onClick={() => setAudienceMode("clinician")}
+                  >
+                    Clinician-friendly
+                  </button>
+                </div>
+                <span
+                  className={
+                    active.queryType === "risk_triage"
+                      ? "severity severity-emergency"
+                      : "severity severity-info"
+                  }
+                >
+                  {active.queryType.replaceAll("_", " ")}
+                </span>
+              </div>
             </div>
 
-            <div className="chat-thread">
-              <article className="chat-bubble chat-bubble-user">
-                <span className="chat-role">User</span>
-                <p>{selectedItem.query}</p>
-              </article>
+            <article className="chat-bubble chat-bubble-user">
+              <span className="chat-role">User</span>
+              <p>{selectedItem.query}</p>
+            </article>
 
-              <article className="chat-bubble chat-bubble-assistant">
-                <span className="chat-role">Local clinical support engine</span>
+            <div className="answer-block-grid">
+              <div className="answer-block">
+                <h4>Local triage result</h4>
                 <p>{active.summary}</p>
                 <ul className="answer-list">
                   {active.keyFindings.slice(0, 2).map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-              </article>
+              </div>
 
-              {selectedItem.aiAnswer ? (
-                <article className="chat-bubble chat-bubble-ai">
-                  <span className="chat-role">
-                    AI Assistant {selectedItem.aiModel ? `- ${selectedItem.aiModel}` : ""}
-                  </span>
-                  <pre className="ai-output">{selectedItem.aiAnswer}</pre>
-                </article>
-              ) : null}
-
-              {selectedItem.aiError ? (
-                <article className="chat-bubble chat-bubble-alert">
-                  <span className="chat-role">Assistant service notice</span>
+              <div className="answer-block">
+                <h4>AI-enhanced explanation</h4>
+                {selectedItem.aiAnswer ? (
+                  <>
+                    {selectedItem.aiModel ? (
+                      <p className="supporting-copy">Model: {selectedItem.aiModel}</p>
+                    ) : null}
+                    <pre className="ai-output">{selectedItem.aiAnswer}</pre>
+                  </>
+                ) : selectedItem.aiError ? (
                   <p className="error-copy">{selectedItem.aiError}</p>
-                </article>
-              ) : null}
-            </div>
+                ) : (
+                  <p className="supporting-copy">
+                    Generate assistant response to add the LLM layer on top of the local rule-based analysis.
+                  </p>
+                )}
+              </div>
 
-            <div className="answer-block-grid">
+              <div className="answer-block">
+                <h4>Final validated answer</h4>
+                <p>{finalValidatedAnswer}</p>
+              </div>
+
+              <div className="answer-block">
+                <h4>Suggested action</h4>
+                <ul className="answer-list">
+                  {active.suggestedActions.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="answer-block answer-block-alert">
+                <h4>Safety reminder</h4>
+                <p>{active.safetyReminder}</p>
+              </div>
+
               <div className="answer-block">
                 <h4>Matched entities</h4>
                 <div className="chip-row">
@@ -353,26 +472,12 @@ export function Dashboard({ knowledge }: DashboardProps) {
               </div>
 
               <div className="answer-block">
-                <h4>Suggested action</h4>
-                <ul className="answer-list">
-                  {active.suggestedActions.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="answer-block">
                 <h4>Drug or treatment notes</h4>
                 <ul className="answer-list">
                   {active.notes.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
-              </div>
-
-              <div className="answer-block answer-block-alert">
-                <h4>Safety reminder</h4>
-                <p>{active.safetyReminder}</p>
               </div>
 
               <div className="answer-block">
@@ -383,8 +488,75 @@ export function Dashboard({ knowledge }: DashboardProps) {
                   ))}
                 </ul>
               </div>
+
+              <div className="answer-block">
+                <h4>Evidence used</h4>
+                <details className="evidence-panel">
+                  <summary>Show matched knowledge and source links</summary>
+                  <div className="evidence-list">
+                    {evidenceItems.length > 0 ? (
+                      evidenceItems.map((item) => (
+                        <a
+                          key={`${item.label}-${item.url}`}
+                          href={item.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="evidence-item"
+                        >
+                          <strong>{item.label}</strong>
+                          <span>{item.source}</span>
+                        </a>
+                      ))
+                    ) : (
+                      <p className="supporting-copy">
+                        No grounded source was matched for this query yet.
+                      </p>
+                    )}
+                  </div>
+                </details>
+              </div>
             </div>
           </section>
+        </div>
+      </section>
+
+      <section className="section" id="evaluation">
+        <div className="section-heading">
+          <span className="eyebrow">Evaluation / Testing</span>
+          <h2>Representative test cases for classroom review</h2>
+          <p>
+            These examples are used to check whether the system routes the query correctly,
+            grounds the answer in the right source, and preserves safety-first behavior.
+          </p>
+        </div>
+        <div className="evaluation-grid">
+          {sampleCaseMeta.map((item) => {
+            const result = createDemoResponse(item.prompt, knowledge);
+            const matched = result.queryType === item.queryType;
+
+            return (
+              <article key={item.label} className="evaluation-card">
+                <div className="evaluation-head">
+                  <span className="panel-label">{item.label}</span>
+                  <span className={matched ? "severity severity-info" : "severity severity-emergency"}>
+                    {matched ? "Matched expected route" : "Needs review"}
+                  </span>
+                </div>
+                <p className="evaluation-query">{item.prompt}</p>
+                <ul className="answer-list">
+                  <li>Expected route: {item.expected}</li>
+                  <li>Detected route: {result.title}</li>
+                  <li>
+                    Grounding hits:{" "}
+                    {result.matchedSymptoms.length +
+                      result.matchedDrugs.length +
+                      result.matchedRules.length}
+                  </li>
+                  <li>Safety reminder present: {result.safetyReminder ? "Yes" : "No"}</li>
+                </ul>
+              </article>
+            );
+          })}
         </div>
       </section>
 
@@ -392,7 +564,10 @@ export function Dashboard({ knowledge }: DashboardProps) {
         <div className="section-heading">
           <span className="eyebrow">Knowledge Base</span>
           <h2>Featured symptom cards</h2>
-          <p>A browsable symptom layer that makes the assistant’s grounding easier to inspect.</p>
+          <p>
+            A browsable symptom layer that makes the assistant grounding easier to inspect.
+            Curated from public medical education sources for classroom prototype use.
+          </p>
         </div>
         <div className="card-grid">
           {knowledge.featuredSymptoms.map((symptom) => (
