@@ -124,26 +124,43 @@ export function Dashboard({ knowledge }: DashboardProps) {
 
   return (
     <main className="page-shell">
+      <div className="topbar">
+        <div>
+          <span className="brand-kicker">MediGuide</span>
+          <h1 className="brand-title">Patient-facing medical guidance, organized for clarity and safety.</h1>
+        </div>
+        <div className="topbar-badge">Clinical communication support prototype</div>
+      </div>
+
       <section className="hero">
         <div className="hero-copy">
-          <span className="eyebrow">MediGuide classroom prototype</span>
-          <h1>Ask a medical question and present it like a real AI assistant demo.</h1>
+          <span className="eyebrow">Medical Information Assistant</span>
+          <h2>Symptom understanding, medication explanation, and risk-aware response support.</h2>
           <p>
-            The site now supports local classification, AI-enhanced answers, and visible
-            chat history so it feels much closer to a final presentation-ready product.
+            MediGuide is designed to help users understand common symptoms, medicines,
+            and urgent warning signs in a safer and more structured way than a general
+            chatbot.
           </p>
           <div className="hero-actions">
             <a href="#demo" className="primary-link">
-              Launch demo
+              Open assistant
             </a>
             <a href="#knowledge" className="secondary-link">
-              Browse knowledge base
+              Review knowledge base
             </a>
           </div>
         </div>
 
         <div className="hero-panel">
-          <p className="panel-label">Knowledge snapshot</p>
+          <div className="hero-panel-head">
+            <span className="panel-label">System status</span>
+            <span className="live-dot">Operational</span>
+          </div>
+          <div className="hero-highlight">
+            <p className="hero-highlight-label">Primary use case</p>
+            <strong>Patient education and clinician-friendly communication support</strong>
+            <span>Local triage logic, medicine knowledge, and AI-assisted response drafting</span>
+          </div>
           <div className="stats-grid">
             {stats.map((stat) => (
               <article key={stat.label} className="stat-card">
@@ -155,60 +172,90 @@ export function Dashboard({ knowledge }: DashboardProps) {
         </div>
       </section>
 
+      <section className="workflow-strip">
+        <article className="workflow-card">
+          <span className="workflow-step">01</span>
+          <h3>Capture the query</h3>
+          <p>Users can describe symptoms, ask about a medicine, or raise an urgent concern.</p>
+        </article>
+        <article className="workflow-card">
+          <span className="workflow-step">02</span>
+          <h3>Classify and ground</h3>
+          <p>The local engine maps the question to symptoms, drugs, and triage rules.</p>
+        </article>
+        <article className="workflow-card">
+          <span className="workflow-step">03</span>
+          <h3>Return structured guidance</h3>
+          <p>The assistant presents findings, suggested action, and safety reminders.</p>
+        </article>
+      </section>
+
       <section className="section" id="demo">
         <div className="section-heading">
-          <span className="eyebrow">Interactive Demo</span>
-          <h2>Conversation view with structured medical answer</h2>
+          <span className="eyebrow">Assistant Workspace</span>
+          <h2>Conversation and structured response review</h2>
+          <p>Use the left panel to submit a health question and the right panel to inspect the assistant output.</p>
         </div>
 
         <div className="demo-layout">
           <section className="qa-panel">
-            <label className="prompt-label" htmlFor="demo-query">
-              Ask a question
-            </label>
-            <textarea
-              id="demo-query"
-              className="query-input"
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder="Describe a symptom, ask about a drug, or test a high-risk case."
-              rows={5}
-            />
+            <div className="composer-card">
+              <div className="composer-header">
+                <div>
+                  <span className="panel-label">Query intake</span>
+                  <h3>Enter a patient-style question</h3>
+                </div>
+                <span className="composer-tag">Input module</span>
+              </div>
 
-            <div className="prompt-list">
-              {samplePrompts.map((prompt) => (
+              <label className="prompt-label" htmlFor="demo-query">
+                Prompt
+              </label>
+              <textarea
+                id="demo-query"
+                className="query-input"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Describe a symptom, ask about a drug, or test a high-risk case."
+                rows={5}
+              />
+
+              <div className="prompt-list">
+                {samplePrompts.map((prompt) => (
+                  <button
+                    key={prompt}
+                    type="button"
+                    className="prompt-chip"
+                    onClick={() => setQuery(prompt)}
+                  >
+                    {prompt}
+                  </button>
+                ))}
+              </div>
+
+              <div className="hero-actions">
                 <button
-                  key={prompt}
                   type="button"
-                  className="prompt-chip"
-                  onClick={() => setQuery(prompt)}
+                  className="secondary-link button-reset"
+                  onClick={handleAnalyze}
+                  disabled={query.trim().length === 0}
                 >
-                  {prompt}
+                  Run local analysis
                 </button>
-              ))}
-            </div>
-
-            <div className="hero-actions">
-              <button
-                type="button"
-                className="secondary-link button-reset"
-                onClick={handleAnalyze}
-                disabled={query.trim().length === 0}
-              >
-                Analyze locally
-              </button>
-              <button
-                type="button"
-                className="primary-link button-reset"
-                onClick={handleEnhanceWithAI}
-                disabled={isPending || query.trim().length === 0}
-              >
-                {isPending ? "Generating..." : "Generate AI response"}
-              </button>
+                <button
+                  type="button"
+                  className="primary-link button-reset"
+                  onClick={handleEnhanceWithAI}
+                  disabled={isPending || query.trim().length === 0}
+                >
+                  {isPending ? "Generating..." : "Generate assistant response"}
+                </button>
+              </div>
             </div>
 
             <div className="history-header">
-              <span className="panel-label">Chat History</span>
+              <span className="panel-label">Interaction history</span>
+              <p className="history-caption">Select an earlier query to reopen its review state.</p>
             </div>
             <div className="history-list">
               {history.map((item, index) => (
@@ -219,7 +266,10 @@ export function Dashboard({ knowledge }: DashboardProps) {
                   onClick={() => setSelectedId(item.id)}
                 >
                   <span className="history-item-index">#{index + 1}</span>
-                  <span className="history-item-text">{item.query}</span>
+                  <span className="history-item-body">
+                    <span className="history-item-text">{item.query}</span>
+                    <span className="history-item-meta">{item.localResponse.title}</span>
+                  </span>
                 </button>
               ))}
             </div>
@@ -228,7 +278,7 @@ export function Dashboard({ knowledge }: DashboardProps) {
           <section className="answer-panel">
             <div className="answer-header">
               <div>
-                <span className="panel-label">Conversation</span>
+                <span className="panel-label">Response review</span>
                 <h3>AI Assistant Response</h3>
               </div>
               <span
@@ -249,7 +299,7 @@ export function Dashboard({ knowledge }: DashboardProps) {
               </article>
 
               <article className="chat-bubble chat-bubble-assistant">
-                <span className="chat-role">Local Demo Engine</span>
+                <span className="chat-role">Local clinical support engine</span>
                 <p>{active.summary}</p>
                 <ul className="answer-list">
                   {active.keyFindings.slice(0, 2).map((item) => (
@@ -269,7 +319,7 @@ export function Dashboard({ knowledge }: DashboardProps) {
 
               {selectedItem.aiError ? (
                 <article className="chat-bubble chat-bubble-alert">
-                  <span className="chat-role">AI Assistant Error</span>
+                  <span className="chat-role">Assistant service notice</span>
                   <p className="error-copy">{selectedItem.aiError}</p>
                 </article>
               ) : null}
@@ -342,6 +392,7 @@ export function Dashboard({ knowledge }: DashboardProps) {
         <div className="section-heading">
           <span className="eyebrow">Knowledge Base</span>
           <h2>Featured symptom cards</h2>
+          <p>A browsable symptom layer that makes the assistant’s grounding easier to inspect.</p>
         </div>
         <div className="card-grid">
           {knowledge.featuredSymptoms.map((symptom) => (
@@ -371,8 +422,9 @@ export function Dashboard({ knowledge }: DashboardProps) {
 
       <section className="section">
         <div className="section-heading">
-          <span className="eyebrow">Medication</span>
+          <span className="eyebrow">Medication Reference</span>
           <h2>Featured drug explanations</h2>
+          <p>Each card summarizes common use and precautions, with a stable DailyMed handoff.</p>
         </div>
         <div className="card-grid">
           {knowledge.featuredDrugs.map((drug) => (
@@ -400,6 +452,7 @@ export function Dashboard({ knowledge }: DashboardProps) {
         <div className="section-heading">
           <span className="eyebrow">Safety Layer</span>
           <h2>High-priority triage rules</h2>
+          <p>Emergency-oriented rules keep the assistant aligned with a safety-first communication boundary.</p>
         </div>
         <div className="triage-list">
           {knowledge.emergencyRules.slice(0, 8).map((rule) => (
